@@ -1,16 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import AppLoading from 'expo-app-loading';
-
 import {
   useFonts,
-  RobotoSlab_400Regular,
-  RobotoSlab_500Medium,
   RobotoSlab_300Light,
+  RobotoSlab_500Medium,
+  RobotoSlab_400Regular,
 } from '@expo-google-fonts/roboto-slab';
+import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'expo-status-bar';
+import { ThemeProvider } from 'styled-components';
+import { StyleSheet, Text, View, useColorScheme } from 'react-native';
+
+import typography from './src/styles/typography';
+import themes from './src/styles';
 
 export default function App() {
+  const deviceTheme = useColorScheme();
+  const theme = themes[deviceTheme] || themes.dark;
+
   const [fontsLoaded] = useFonts({
     RobotoSlab_400Regular,
     RobotoSlab_500Medium,
@@ -22,10 +28,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={{ ...theme, typography }}>
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+        <StatusBar style="auto" />
+      </View>
+    </ThemeProvider>
   );
 }
 
