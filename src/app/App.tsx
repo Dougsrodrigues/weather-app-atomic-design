@@ -11,7 +11,7 @@ import styled, { ThemeProvider } from 'styled-components/native';
 import { useColorScheme } from 'react-native';
 
 import themes from '../styles';
-import { StyledText } from '../components/atoms/typography/StyledText';
+import { StyledText } from '../components/atoms/typography';
 
 export default function App() {
   const deviceTheme = useColorScheme();
