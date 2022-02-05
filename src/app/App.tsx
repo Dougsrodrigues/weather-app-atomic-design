@@ -10,6 +10,8 @@ import AppLoading from 'expo-app-loading';
 import styled, { ThemeProvider } from 'styled-components/native';
 import { useColorScheme } from 'react-native';
 
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import themes from '../styles';
 import { StyledText } from '../components/atoms/typography';
 
@@ -31,9 +33,13 @@ export default function App() {
 
   return (
     <ThemeProvider theme={{ ...typography, ...theme }}>
-      <Container>
-        <StyledText>Olá</StyledText>
-      </Container>
+      <SafeAreaProvider>
+        <Container>
+          <StyledText family="semiBold" size="large">
+            Olá
+          </StyledText>
+        </Container>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }
