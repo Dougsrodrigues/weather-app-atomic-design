@@ -7,16 +7,15 @@ import {
   RobotoSlab_600SemiBold,
 } from '@expo-google-fonts/roboto-slab';
 import AppLoading from 'expo-app-loading';
-import styled, { ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from 'styled-components/native';
 import { useColorScheme } from 'react-native';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import themes from '../styles';
-import { StyledText } from '../components/atoms/typography';
-import { Icon } from '../components/atoms/Icon/Icon';
 
 import weather from './assets/fonts/weather.ttf';
+import { WeatherScreen } from '../screens/Weather/WeatherScreen';
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -38,19 +37,8 @@ export default function App() {
   return (
     <ThemeProvider theme={{ ...typography, ...theme }}>
       <SafeAreaProvider>
-        <Container>
-          <StyledText family="semiBold" size="large">
-            Olá
-          </StyledText>
-          <Icon name="location" />
-        </Container>
+        <WeatherScreen />
       </SafeAreaProvider>
     </ThemeProvider>
   );
 }
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
