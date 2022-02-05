@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components';
 
 interface StyledTextProps {
   family?: 'regular' | 'medium' | 'light' | 'semiBold';
-  size?: 'small' | 'medium' | 'large';
+  size?: 'extraLarge' | 'extraMedium' | 'extra' | 'large' | 'medium' | 'small';
   lineHeight?: 'small' | 'medium' | 'large';
   color?: string | undefined;
 }
