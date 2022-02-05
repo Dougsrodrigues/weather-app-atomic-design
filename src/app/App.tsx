@@ -14,6 +14,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import themes from '../styles';
 import { StyledText } from '../components/atoms/typography';
+import { Icon } from '../components/atoms/Icon/Icon';
+
+import weather from './assets/fonts/weather.ttf';
 
 export default function App() {
   const deviceTheme = useColorScheme();
@@ -25,6 +28,7 @@ export default function App() {
     RobotoSlab_500Medium,
     RobotoSlab_300Light,
     RobotoSlab_600SemiBold,
+    weather,
   });
 
   if (!fontsLoaded) {
@@ -38,6 +42,7 @@ export default function App() {
           <StyledText family="semiBold" size="large">
             Olá
           </StyledText>
+          <Icon name="location" />
         </Container>
       </SafeAreaProvider>
     </ThemeProvider>
