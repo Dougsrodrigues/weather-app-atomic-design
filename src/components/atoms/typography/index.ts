@@ -1,1 +1,1 @@
-export * from './StyledText/StyledText';
+export * from './StyledText';
